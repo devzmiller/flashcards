@@ -5,6 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+deck = Deck.create(name: "Pokemon")
 5.times do
-  Card.create(question: Faker::Pokemon.name, answer: Faker::Pokemon.move)
+  Card.create(question: Faker::Pokemon.name, answer: Faker::Pokemon.move, deck: deck)
 end
