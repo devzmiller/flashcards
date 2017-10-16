@@ -6,6 +6,7 @@
   <% else %>
     <p>Wrong! The correct answer was: <%= @card.answer %></p>
   <% end %>
+  <%= link_to 'next card', card_path(Card.all.sample) %>
 <% else %>
   <%= form_for [@card, @guess] do |f| %>
     <%= label_tag(:answer, 'Answer: ') %>
