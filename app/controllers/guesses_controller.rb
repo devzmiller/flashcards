@@ -1,8 +1,7 @@
 class GuessesController < ApplicationController
   def create
-    params.permit!
     @card = Card.find(params[:card_id])
-    @guess = Guess.new(params[:guess])
+    @guess = Guess.new(params.require(:guess).permit(:answer))
     @guess.card = @card
     @guess.check_guess
     @guess.save
