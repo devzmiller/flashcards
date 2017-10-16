@@ -1,3 +1,7 @@
 <h2><%= @card.question %></h2>
 
-<%= form_tag() %>
+<%= form_for [@card, @guess] do |f| %>
+  <%= label_tag(:answer, 'Answer: ') %>
+  <%= f.text_field :answer %>
+  <%= submit_tag('guess') %>
+<% end %>
