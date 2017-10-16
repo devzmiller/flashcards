@@ -1,7 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Guess, type: :model do
-  let!(:card) { Card.create!(question: "Question", answer: 'Answer') }
+  let!(:deck) {Deck.create!(name: "deck")}
+  let!(:card) { Card.create!(question: "Question", answer: 'Answer', deck: deck) }
   let!(:guess) { Guess.create!(card: card, answer: "Answer") }
 
   describe "associations" do

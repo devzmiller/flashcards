@@ -2,7 +2,8 @@ require 'rails_helper'
 
 RSpec.describe Card, type: :model do
   describe 'attributes' do
-    let!(:card) {Card.new(question: "Question", answer: "Answer")}
+    let!(:deck) {Deck.create!(name: "deck")}
+    let!(:card) {Card.new(question: "Question", answer: "Answer", deck: deck)}
     it 'has a question' do
       expect(card.question).to eq "Question"
     end
@@ -18,6 +19,10 @@ RSpec.describe Card, type: :model do
     end
     it 'is invalid without an answer' do
       card.answer = nil
+      expect(card).to_not be_valid
+    end
+    it 'is invalid without a deck' do
+      card.deck = nil
       expect(card).to_not be_valid
     end
   end
