@@ -1,0 +1,25 @@
+<h1>Register</h1>
+
+<% if @errors %>
+  <ul>
+    <% @errors.each do |error| %>
+      <li style="color: red;"><%= error %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_for @user do |f| %>
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div>
+    <%= f.label :email %>
+    <%= f.email_field :email %>
+  </div>
+  <div>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+  </div>
+  <%= f.submit %>
+<% end %>
